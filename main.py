@@ -39,7 +39,11 @@ async def voice_chat(ctx, *, text):
     # 播放語音的邏輯寫這裡，這是示意
     # 播放嘎嘎叫音效
     if emotion == "angry":
-        source = discord.FFmpegPCMAudio("assets/gaga_angry.wav")
+        source = discord.FFmpegPCMAudio(
+        "assets/gaga_angry.wav",
+        executable="C:/ffmpeg/ffmpeg-7.1.1-essentials_build/bin/ffmpeg.exe"
+        )
+
         vc.play(source)
         while vc.is_playing():
             await asyncio.sleep(1)
